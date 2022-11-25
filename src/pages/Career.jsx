@@ -2,7 +2,7 @@ import React from "react";
 import TopBar from "../components/TopBar";
 import NavBar from "../components/NavBar";
 import Contact from "../components/Contact";
-import Footer from "..components/Footer";
+import Footer from "../components/Footer";
 
 function Career() {
   return (

@@ -1,13 +1,23 @@
-import React from 'react';
+import React , { Suspense, lazy } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+const Home = lazy(()=>import("./pages/Home"));
+const Career = lazy(()=>import("./pages/Career"));
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+ReactDOM.render( 
+    <React.Fragment>
+      <Router>
+        <Suspense fallback={<div>Loading...</div>}>
+        <Routes>
+          <Route path={"/"} exact={true} element={<Home />}></Route>
+          <Route path={"/home"}  element={<Home />}></Route>
+          <Route path={"/career"} element={<Career />} ></Route>
+        </Routes>
+        </Suspense>
+      </Router>
+    </React.Fragment>
+  ,
   document.getElementById('root')
 );
 
